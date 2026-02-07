@@ -1,0 +1,72 @@
+/* ===== Background Animation Layer ===== */
+.bg-animation {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #f8fafc;
+}
+
+/* Floating blobs */
+.bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  animation: floatBlob 6s ease-in-out infinite;
+}
+
+.bg-blob.cyan {
+  background: rgba(34, 211, 238, 0.45);
+  top: 15%;
+  left: -10%;
+}
+
+.bg-blob.orange {
+  background: rgba(251, 146, 60, 0.45);
+  bottom: 10%;
+  right: -10%;
+  animation-delay: 4s;
+}
+
+.bg-blob.indigo {
+  background: rgba(129, 140, 248, 0.4);
+  top: 65%;
+  left: 30%;
+  animation-delay: 8s;
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+    filter: blur(120px) hue-rotate(0deg);
+  }
+
+  50% {
+    transform: translate(120px, -100px) scale(1.2);
+    filter: blur(140px) hue-rotate(120deg);
+  }
+
+  100% {
+    transform: translate(-80px, 120px) scale(1);
+    filter: blur(120px) hue-rotate(260deg);
+  }
+  
+}
+.bg-blob.cyan {
+  animation-duration: 7s;
+}
+
+.bg-blob.orange {
+  animation-duration: 9s;
+}
+
+.bg-blob.indigo {
+  animation-duration: 11s;
+}
+
+
+

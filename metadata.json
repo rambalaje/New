@@ -1,0 +1,6 @@
+
+{
+  "name": "Fractals & Ivenor 26 - College Symposium",
+  "description": "A premium, high-performance platform for a college symposium featuring event management, automated scheduling, and an intelligent AI assistant for guest inquiries.",
+  "requestFramePermissions": ["microphone"]
+}
