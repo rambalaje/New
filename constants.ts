@@ -2,7 +2,7 @@
 import { Event, ScheduleItem } from './types';
 
 
-export const SYMPOSIUM_NAME = "Fractals & Ivenor 26";
+export const SYMPOSIUM_NAME = "Fractals & I'venor 26";
 export const SYMPOSIUM_TAGLINE = "Where Fractals meet Innovation.";
 
 

@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Message } from '../types';
-import { getAIResponse } from '../services/geminiService';
+import React, { useState, useRef, useEffect } from "react";
+import { Message } from "../types";
+import { getAIResponse } from "../services/geminiService";
 
 export const AIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: 'Hi! I am Ram. How can I help you today?' }
+    { role: "model", text: "Hi! I am Ram. How can I help you today?" },
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -20,13 +20,13 @@ export const AIChatbot: React.FC = () => {
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
 
-    const userMsg: Message = { role: 'user', text: input };
-    setMessages(prev => [...prev, userMsg]);
-    setInput('');
+    const userMsg: Message = { role: "user", text: input };
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
     setIsLoading(true);
 
     const responseText = await getAIResponse([...messages, userMsg]);
-    setMessages(prev => [...prev, { role: 'model', text: responseText }]);
+    setMessages((prev) => [...prev, { role: "model", text: responseText }]);
     setIsLoading(false);
   };
 
@@ -95,14 +95,14 @@ export const AIChatbot: React.FC = () => {
               <div
                 key={idx}
                 className={`flex ${
-                  msg.role === 'user' ? 'justify-end' : 'justify-start'
+                  msg.role === "user" ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl text-sm ${
-                    msg.role === 'user'
-                      ? 'bg-indigo-600 text-white rounded-tr-none'
-                      : 'bg-white text-slate-800 border border-slate-200 rounded-tl-none'
+                    msg.role === "user"
+                      ? "bg-indigo-600 text-white rounded-tr-none"
+                      : "bg-white text-slate-800 border border-slate-200 rounded-tl-none"
                   }`}
                 >
                   {msg.text}
@@ -125,7 +125,7 @@ export const AIChatbot: React.FC = () => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Ask me anything..."
               className="flex-1 bg-slate-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
             />
